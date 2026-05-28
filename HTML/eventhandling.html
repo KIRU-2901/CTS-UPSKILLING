@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Handling</title>
+  </head>
+  <body>
+    <h2>Feedback Form</h2>
+    <input
+      type="text"
+      id="phone"
+      placeholder="Enter Phone Number"
+      onblur="validatePhone()"
+    />
+    <br /><br />
+    <select onchange="showFee(this.value)">
+      <option>Select Event</option>
+      <option value="500">Music</option>
+      <option value="300">Workshop</option>
+      <option value="400">Sports</option>
+    </select>
+    <p id="fee"></p>
+    <img src="https://picsum.photos/200" ondblclick="enlargeImage(this)" />
+    <br /><br />
+    <textarea id="feedback" onkeyup="countCharacters()"></textarea>
+    <p id="count"></p>
+    <button onclick="submitForm()">Submit</button>
+    <script>
+      function validatePhone() {
+        let phone = document.getElementById("phone").value;
+        if (phone.length != 10) {
+          alert("Phone number must be 10 digits");
+        }
+      }
+      function showFee(value) {
+        document.getElementById("fee").innerHTML = "Event Fee: ₹" + value;
+      }
+      function submitForm() {
+        alert("Feedback Submitted");
+      }
+      function enlargeImage(img) {
+        img.style.width = "400px";
+      }
+      function countCharacters() {
+        let text = document.getElementById("feedback").value;
+        document.getElementById("count").innerHTML =
+          "Characters: " + text.length;
+      }
+    </script>
+  </body>
+</html>
